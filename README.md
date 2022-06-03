@@ -55,7 +55,9 @@
 
 [![Product Name Screen Shot][product-screenshot]](https://github.com/dengyya/CAPSTONE-PROJECT/blob/bullseye/admin/images/dashboard_photo.png)
 
-Here's a blank template to get started: To avoid retyping too much info. Do a search and replace with your text editor for the following: `github_username`, `repo_name`, `twitter_handle`, `linkedin_username`, `email_client`, `email`, `project_title`, `project_description`
+
+GitHub Repository (https://github.com/dengyya/CAPSTONE-PROJECT)
+Project Title (A Web-Based Complaints Reporting Management System)
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
@@ -74,23 +76,30 @@ Here's a blank template to get started: To avoid retyping too much info. Do a se
 <!-- GETTING STARTED -->
 ## Getting Started
 
-This is an example of how you may give instructions on setting up your project locally.
-To get a local copy up and running follow these simple example steps.
+In creating this project is very simple, where you will need XAMPP, any editor for the code a Sublime or Visual Studio Code. But I am recommending to use Visual Studio Code. 
 
 ### Prerequisites
 
-This is an example of how to list things you need to use the software and how to install them.
-* npm
+You need to install this software:
+* XAMPP 
   ```sh
-  npm install npm@latest -g
+  https://www.apachefriends.org/index.html
   ```
+here is the link to install the XAMPP 
+
+* Visual Studio Code 
+  ```sh
+  https://code.visualstudio.com/
+  ```
+here is the link to install the Visual Studio Code  
 
 ### Installation
 
-1. Get a free API Key at [https://example.com](https://example.com)
+1. Open the XAMPP admin and create database name crms_db. 
+2. Import the sql file 
 2. Clone the repo
    ```sh
-   git clone https://github.com/github_username/repo_name.git
+   git clone https://github.com/dengyya/CAPSTONE-PROJECT.git
    ```
 3. Install NPM packages
    ```sh
