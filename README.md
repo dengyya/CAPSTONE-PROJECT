@@ -1,5 +1,14 @@
 <div id="top"></div>
 
+<!-- PROJECT SHIELDS -->
+
+[![Contributors][contributors-shield]][contributors-url]
+[![Forks][forks-shield]][forks-url]
+[![Stargazers][stars-shield]][stars-url]
+[![Issues][issues-shield]][issues-url]
+[![MIT License][license-shield]][license-url]
+[![LinkedIn][linkedin-shield]][linkedin-url]
+
 
 <!-- PROJECT LOGO -->
 <br />
@@ -96,20 +105,15 @@ here is the link to install the Visual Studio Code
 ### Installation
 
 1. Open the XAMPP admin and create database name crms_db. 
-2. Import the sql file 
+2. Import the sql file from https://github.com/dengyya/CAPSTONE-PROJECT/tree/bullseye/database 
 2. Clone the repo
    ```sh
    git clone https://github.com/dengyya/CAPSTONE-PROJECT.git
    ```
-3. Install NPM packages
-   ```sh
-   npm install
-   ```
-4. Enter your API in `config.js`
-   ```js
-   const API_KEY = 'ENTER YOUR API';
-   ```
-
+3. Open XAMMP Apache and MySQL to run the application.
+  
+4. Open in any web browser http://localhost/<folderName>/index.php
+   
 <p align="right">(<a href="#top">back to top</a>)</p>
 
 
@@ -117,9 +121,9 @@ here is the link to install the Visual Studio Code
 <!-- USAGE EXAMPLES -->
 ## Usage
 
-Use this space to show useful examples of how a project can be used. Additional screenshots, code examples and demos work well in this space. You may also link to more resources.
+Make sure that the folder of this Project is located at the xampp/htdocs folder in able to run this project. 
 
-_For more examples, please refer to the [Documentation](https://example.com)_
+_For more examples, please refer to the [Documentation](https://github.com/dengyya/CAPSTONE-PROJECT/blob/bullseye/admin/images/admin_side.png)_
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
@@ -129,11 +133,13 @@ _For more examples, please refer to the [Documentation](https://example.com)_
 ## Roadmap
 
 - [ ] Feature 1
+    Report complaint, crime or accident and missing person 
 - [ ] Feature 2
+    Email Verification for user 
 - [ ] Feature 3
-    - [ ] Nested Feature
+    - [ ] Report List
+    - [ ] Get Updates on your Report
 
-See the [open issues](https://github.com/github_username/repo_name/issues) for a full list of proposed features (and known issues).
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
@@ -169,9 +175,9 @@ Distributed under the MIT License. See `LICENSE.txt` for more information.
 <!-- CONTACT -->
 ## Contact
 
-Your Name - [@twitter_handle](https://twitter.com/twitter_handle) - email@email_client.com
+Andrea Hermogenes - [@twitter_handle](https://twitter.com/twitter_handle) - ashermoegenes03@gmail.com
 
-Project Link: [https://github.com/github_username/repo_name](https://github.com/github_username/repo_name)
+Project Link: [https://github.com/dengyya/CAPSTONE-PROJECT](https://github.com/dengyya/CAPSTONE-PROJECT)
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
@@ -199,7 +205,6 @@ Project Link: [https://github.com/github_username/repo_name](https://github.com/
 [issues-shield]: https://img.shields.io/github/issues/github_username/repo_name.svg?style=for-the-badge
 [issues-url]: https://github.com/github_username/repo_name/issues
 [license-shield]: https://img.shields.io/github/license/github_username/repo_name.svg?style=for-the-badge
-[license-url]: https://github.com/github_username/repo_name/blob/master/LICENSE.txt
-[linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
-[linkedin-url]: https://linkedin.com/in/linkedin_username
+[license-url]: https://github.com/dengyya/CAPSTONE-PROJECT/blob/bullseye/LICENSE
+[linkedin-url]: https://www.linkedin.com/in/andrea-hermogenes-9a4957235/
 [product-screenshot]: https://github.com/dengyya/CAPSTONE-PROJECT/blob/bullseye/admin/images/dashboard_photo.png
