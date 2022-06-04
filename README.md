@@ -68,6 +68,9 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
+Complaint Reporting Management System (CRMS) is an online platform that the main objective is to provide easy access solutions for reporting and managing of complaints at any time in this time of pandemic. It can lead to secure, fast, reliable, and safe way of writing and managing complaint reports. The system elevates the existing system with the use of computerized equipment that is much more convenient in this time of pandemic, enable storing of data in a long period of time and allows easy access and manipulation of data. It provides services like reporting complaints, reporting crimes, reporting missing persons and other services that the barangay offers. The system can be used by anyone who wants to file a complaint report over the internet and letting the officials starts know what is happening without the need of actual going to the barangay every time. In addition, the purpose of the system is to create an online platform that manages complaint report details in a centralized database.
+
+
 [![Product Name Screen Shot][product-screenshot]](https://github.com/dengyya/CAPSTONE-PROJECT/blob/bullseye/admin/images/dashboard_photo.png)
 
 
@@ -118,7 +121,7 @@ here is the link to install the Visual Studio Code
    ```
 3. Open XAMMP Apache and MySQL to run the application.
   
-4. Open in any web browser http://localhost/<folderName>/index.php
+4. Open in any web browser http://localhost/folderName/index.php
    
 <p align="right">(<a href="#top">back to top</a>)</p>
 
@@ -129,7 +132,7 @@ here is the link to install the Visual Studio Code
 
 Make sure that the folder of this Project is located at the xampp/htdocs folder in able to run this project. 
 
-_For more examples, please refer to the [Documentation](https://github.com/dengyya/CAPSTONE-PROJECT/blob/bullseye/admin/images/admin_side.png)_
+_For more examples, please refer to the [Documentation](https://github.com/dengyya/CAPSTONE-PROJECT/blob/bullseye/images/admin_side.png)_
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
@@ -193,9 +196,6 @@ Project Link: [https://github.com/dengyya/CAPSTONE-PROJECT](https://github.com/d
 ## Acknowledgments
 
 * [Choose an Open Source License](https://choosealicense.com)
-* [GitHub Emoji Cheat Sheet](https://www.webpagefx.com/tools/emoji-cheat-sheet)
-* [Malven's Flexbox Cheatsheet](https://flexbox.malven.co/)
-* [Malven's Grid Cheatsheet](https://grid.malven.co/)
 * [Img Shields](https://shields.io)
 * [GitHub Pages](https://pages.github.com)
 * [Font Awesome](https://fontawesome.com)
@@ -216,7 +216,8 @@ Project Link: [https://github.com/dengyya/CAPSTONE-PROJECT](https://github.com/d
 [issues-shield]: https://img.shields.io/github/issues/othneildrew/Best-README-Template.svg?style=for-the-badge
 [issues-url]: https://github.com/dengyya/CAPSTONE-PROJECT/issues
 [license-shield]: https://img.shields.io/github/license/othneildrew/Best-README-Template.svg?style=for-the-badge
-[license-url]: https://github.com/dengyya/CAPSTONE-PROJECT/blob/bullseye/LICENSE.txt
+[license-url]: https://github.com/dengyya/CAPSTONE-PROJECT/blob/bullseye/LICENSE
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
 [linkedin-url]: https://www.linkedin.com/in/andrea-hermogenes-9a4957235/
 [product-screenshot]: https://github.com/dengyya/CAPSTONE-PROJECT/blob/bullseye/admin/images/dashboard_photo.png
+[Documentation]: https://github.com/dengyya/CAPSTONE-PROJECT/blob/bullseye/images/admin_side.png
