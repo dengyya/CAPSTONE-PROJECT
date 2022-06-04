@@ -1,4 +1,5 @@
 <?php
+session_start();
 include('admin/db_connect.php');
 ob_start();
 $query = $conn->query("SELECT * FROM system_settings limit 1")->fetch_array();
@@ -9,8 +10,8 @@ foreach ($query as $key => $value) {
 ob_end_flush();
 include('header.php');
 
-?>
 
+?>
 
 <!--font awesome css-->
 <link href="vendor/font-awesome/css/all.min.css" rel="stylesheet" type="text/css">
@@ -59,11 +60,8 @@ include('header.php');
               <li class="nav-item"><i class="fa fa-user"></i><a href="javascript:void(0)" id="login_now"> Login</a></li>
             <?php endif; ?>
 
-
-
-
-
         </ul>
       </div>
       </div>
+      <?php include('footer.php') ?>
     </nav>

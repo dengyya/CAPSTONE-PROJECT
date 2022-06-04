@@ -1,153 +1,143 @@
-<!DOCTYPE html>
-<html lang="en">
+<link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+<!-- Bootstrap css-->
+
+<!--font awesome css-->
 <?php
+
 session_start();
-include('./db_connect.php');
-ob_start();
-// if(!isset($_SESSION['system'])){
-$system = $conn->query("SELECT * FROM system_settings limit 1")->fetch_array();
-foreach ($system as $k => $v) {
-	$_SESSION['system'][$k] = $v;
-}
-// }
-ob_end_flush();
+
+include("admin/db_connect.php");
+
 ?>
 
-<head>
-	<meta charset="utf-8">
-	<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<div class="container">
+  <div class="row align-items-center justify-content-center">
+    <div class="col-md-6 col-lg-7 col-xl-6">
+      <img src="img/login.png" class="img-fluid image">
+    </div>
+    <div class="col-md-6 col-lg-5 col-xl-5 offset-xl-1">
 
-	<title><?php echo $_SESSION['system']['name'] ?></title>
 
 
-	<?php include('./header.php'); ?>
-	<?php
-	if (isset($_SESSION['login_id']))
-		header("location:index.php?page=home");
+      <form action="" id="login-frm">
+        <!--inputs-->
+        <div class=form-messages>
+          <ul id="register_output"> </ul>
+        </div>
 
-	?>
+        <div class="form-group">
+          <label for="floatingInput">Username</label>
+          <input type="email" class="form-control" id="email" name="email" placeholder="name@example.com" required>
 
-</head>
+        </div>
+        <div class="form-group">
+          <label for="password">Password</label>
+          <input type="password" class="form-control" id="myInput" name="password" placeholder="Password" required>
+          <div class="row">
+            <div class="col-lg-6">
+              <input type="checkbox" onclick="myFunction()"> Show Password
+            </div>
+            <div class="col-lg-6">
+              <div class="link forget-pass text-center"><a href="forgot-password.php">Forgot password?</a></div>
+            </div>
+          </div>
+
+        </div>
+
+
+
+
+        <p>By continuing, you agree to Bullseye's <i><a href="javascript:void(0)" id="terms_of_service">Terms of Service</a></i> and <i><a href="javascript:void(0)" id="privacy_policy">Privacy Policy</i></p>
+
+
+        <!--Sign in-->
+        <div class="d-grid col-lg-12">
+          <input type="submit" class="btn btn-primary btn-login text-uppercase fw mb-2 col-md-12" name="register" value="Sign in">
+          <div class="text-center">
+            <a class="small" href="register.php">Create New Account</a>
+          </div>
+          <!-- Divider Text -->
+          <div class="form-group col-lg-12 mx-auto d-flex align-items-center my-2">
+            <div class="border-bottom w-100 ml-5"></div>
+            <!-- <span class="px-2 small text-muted font-weight-bold text-muted">OR</span>-->
+            <div class="border-bottom w-100 mr-5"></div>
+          </div>
+
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
 <style>
-	body {
-		width: 100%;
-		height: calc(100%);
-		position: fixed;
-		top: 0;
-		left: 0;
+  #uni_modal .modal-footer {
+    display: none;
+  }
 
-		/*background: #007bff;*/
-	}
+  .btn-facebook {
+    border: none;
+  }
 
-	main#main {
-		width: 100%;
-		height: calc(100%);
-		display: flex;
-	}
+  .btn-gmail {
+    background-color: #f64508;
+    border: none;
+  }
 
-	.admn {
-		width: 400px;
-		padding-top: 80px;
-		-webkit-animation: mover 2s infinite alternate;
-		animation: mover 1s infinite alternate;
-	}
+  .btn-gmail:hover {
+    background-color: #b93102;
+  }
 
-	@-webkit-keyframes mover {
-		0% {
-			transform: translateY(0);
-		}
-
-		100% {
-			transform: translateY(-20px);
-		}
-	}
-
-	@keyframes mover {
-		0% {
-			transform: translateY(0);
-		}
-
-		100% {
-			transform: translateY(-20px);
-		}
-	}
+  .btn-login {
+    font-size: 0.9rem;
+    letter-spacing: 0.05rem;
+    padding: 0.75rem 1rem;
+    background-color: #3f4b58;
+    border: none;
+  }
 </style>
-
-<body class="">
-
-	<div class="container">
-		<div class=" row align-items-center justify-content-center">
-			<div class="col-lg-7   ">
-				<div class="col"><img src="images/admn.png" class="admn img-fluid image"></div>
-			</div>
-
-			<div class="col-lg-5  pt-4 p-3">
-
-				<div class=""><img src="images/logos.png" class="img-fluid image mb-3 offset-md-3" width="150px"></div>
-				<h4 class="text-white text-center"><b><?php echo $_SESSION['system']['name'] ?></b></h4>
-				<form action="" id="login-form">
-					<div class="form-group">
-						<label for="username" class="control-label">Username</label>
-						<input type="text" id="username" name="username" class="form-control">
-					</div>
-					<div class="form-group">
-						<label for="password" class="control-label">Password</label>
-						<input type="password" id="myInput" name="password" class="form-control">
-						<input class="mt-3" type="checkbox" onclick="myFunction()"> Show Password
-					</div>
-
-
-					<button class="btn btn-block mt-4 btn-dark text-white">Login</button>
-				</form>
-
-			</div>
-		</div>
-	</div>
-
-
-
-
-</body>
 <script>
-	function myFunction() {
-		var x = document.getElementById("myInput");
-		if (x.type === "password") {
-			x.type = "text";
-		} else {
-			x.type = "password";
-		}
-	}
+  function myFunction() {
+    var x = document.getElementById("myInput");
+    if (x.type === "password") {
+      x.type = "text";
+    } else {
+      x.type = "password";
+    }
+  }
 
+  $('#new_account').click(function() {
+    uni_modal("Create an Account", 'signup.php?redirect=index.php?page=checkout', "large")
+  })
+  $('#terms_of_service').click(function() {
+    uni_modal("Terms of Service", 'terms.php', "large")
+  })
+  $('#privacy_policy').click(function() {
+    uni_modal("Privacy Policy", 'privacy_policy.php', "large")
+  })
+  $('#login-frm').submit(function(e) {
+    e.preventDefault()
+    start_load()
+    if ($(this).find('.alert-danger').length > 0)
+      $(this).find('.alert-danger').remove();
+    $.ajax({
+      url: 'admin/ajax.php?action=login2',
+      method: 'POST',
+      data: $(this).serialize(),
+      error: err => {
+        console.log(err)
+        end_load()
 
-	$('#login-form').submit(function(e) {
-		e.preventDefault()
-		$('#login-form button[type="button"]').attr('disabled', true).html('Logging in...');
-		if ($(this).find('.alert-danger').length > 0)
-			$(this).find('.alert-danger').remove();
-		$.ajax({
-			url: 'ajax.php?action=login1',
-			method: 'POST',
-			data: $(this).serialize(),
-			error: err => {
-				console.log(err)
-				$('#login-form button[type="button"]').removeAttr('disabled').html('Login');
-
-			},
-			success: function(resp) {
-				if (resp == 1) {
-					location.href = 'index.php?page=home';
-
-				} else if (resp == 3) {
-					$('#login-form').prepend('<div class="alert alert-danger">Your account has been disabled.</div>')
-					$('#login-form button[type="button"]').removeAttr('disabled').html('Login');
-
-				} else if (resp == 2) {
-					$('#login-form').prepend('<div class="alert alert-danger">Username or password is incorrect.</div>')
-					$('#login-form button[type="button"]').removeAttr('disabled').html('Login');
-				}
-			}
-		})
-	})
+      },
+      success: function(resp) {
+        if (resp == 1) {
+          location.href = '<?php echo isset($_GET['redirect']) ? $_GET['redirect'] : 'index.php?page=home' ?>';
+        } else if (resp == 3) {
+          $('#login-frm').prepend('<div class="alert alert-danger">Your account has been disabled for violating our terms of service.</div>')
+          end_load()
+        } else if (resp == 2) {
+          $('#login-frm').prepend('<div class="alert alert-danger">Email or password is incorrect.</div>')
+          end_load()
+        }
+      }
+    })
+  })
 </script>
-
-</html>

@@ -1,119 +1,200 @@
-<?php include 'db_connect.php' ?>
+<?php include 'admin/assets/script.php'; ?>
 <?php
-$qry = $conn->query("SELECT * FROM missing where id = {$_GET['id']} ");
-foreach ($qry->fetch_array() as $k => $v) {
-	$$k = $v;
-}
-if ($status > 1) {
-	$aqry =  $conn->query("SELECT * FROM missing_action where complaint_id = {$_GET['id']} ");
-	foreach ($aqry->fetch_array() as $k => $v) {
-		$ca[$k] = $v;
+include('db_connect.php');
+if (isset($_GET['id'])) {
+	$crm = $conn->query("SELECT * FROM missing where id =" . $_GET['id']);
+	foreach ($crm->fetch_array() as $k => $val) {
+		$$k = $val;
 	}
 }
 ?>
 <div class="container-fluid">
-	<div class="col-lg-12">
-		<large><b>Name:</b></large>
-		<p><?php echo $missing_fname ?> <?php echo $missing_lname ?></p>
-		<hr>
-		<large><b>Age:</b></large>
-		<p><?php echo $missing_age ?></p>
-		<large><b>Gender:</b></large>
-		<p><?php echo $missing_gender ?></p>
-		<hr>
-		<large><b>Informer Name :</b></large>
-		<p><?php echo $informer_fname ?> <?php echo $informer_lname ?></p>
-		<hr>
-		<large><b>Informer Contact Number:</b></large>
-		<p><?php echo $contact_number ?></p>
-		<hr>
-		<large><b>Details:</b></large>
-		<p><?php echo $physical_description ?></p>
-		<hr>
+	<div id="msg"></div>
 
-		<form id="manage-missing">
-			<div id="msg"></div>
-			<input type="hidden" name="id" value="<?php echo $_GET['id'] ?>">
-			<div class="form-group">
-				<label for="" class="control-label">Status</label>
-				<select name="status" id="status" class="custom-select input-sm">
-					<option value="1" <?php echo isset($status) && $status == 1 ? 'selected' : '' ?>>Pending</option>
-					<option value="2" <?php echo isset($status) && $status == 2 ? 'selected' : '' ?>>Received</option>
-					<option value="3" <?php echo isset($status) && $status == 3 ? 'selected' : '' ?>>Action Made</option>
-				</select>
+	<form action="" id="manage-missing">
+		<input type="hidden" name="id" value="<?php echo isset($id) ? $id : '' ?>">
+
+
+		<div class="card-header text-center">
+			<h5>INFORMATION ABOUT THE MISSING PERSON</h5>
+		</div>
+
+		<div class="row">
+			<div class="form-group col-lg-6 mb-2">
+				<label for="missing_fname">First name:</label>
+				<input type="text" class="form-control" name="missing_fname" id="missing_fname" placeholder="First name" required pattern="^\D*$" title="Number Not Allowed" value="<?php echo isset($missing_fname) ? $missing_fname : '' ?>" required>
 			</div>
-			<div class="assign-responder" style="display:none">
-				<div class="form-group">
-					<label for="" class="control-label">Dispathced Responder</label>
-					<select name="responder_id" id="" class="custom-select input-sm select2">
-						<option value=""></option>
-						<?php
-						$complaints = $conn->query("SELECT rt.*,s.name as sname,s.address FROM responders_team rt inner join stations s on s.id = rt.station_id where rt.availability = 1 " . (isset($ca['responder_id']) ? " or rt.id = {$ca['responder_id']}" : '') . " order by rt.name asc ");
-						while ($row = $complaints->fetch_assoc()) :
-						?>
-							<option value="<?php echo $row['id'] ?>" <?php echo isset($ca['responder_id']) && $ca['responder_id'] == 1 ? 'selected' : '' ?>><?php echo $row['sname'] . ' - ' . $row['name'] ?></option>
-						<?php endwhile; ?>
-					</select>
+
+			<div class="form-group col-lg-6 ">
+				<label for="missing_lname">Last name:</label>
+				<input type="text" class="form-control" name="missing_lname" id="missing_lname" value="<?php echo isset($missing_lname) ? $missing_lname : '' ?>" placeholder="Last name" required pattern="^\D*$" title="Number Not Allowed" required>
+			</div>
+
+
+
+			<div class="form-group col-lg-6 ">
+				<label for="missing_age">Age:</label>
+				<input type="number" class="form-control" name="missing_age" id="missing_age" value="<?php echo isset($missing_age) ? $missing_age : '' ?>" required>
+			</div>
+
+
+
+			<div class=" col-lg-6 ">
+				<div class="form-group  mb-2">
+					<label for="">Gender:</label> <br>
+					<select name="missing_gender" id="missing_gender" value="<?php echo isset($missing_gender) ? $missing_gender : '' ?>" class="form-control" required>
+						<option selected></option>
+						<option value="Female" <?php echo isset($missing_gender) && $missing_gender == "Female" ? 'selected' : "" ?>>Female</option>
+						<option value="Male" <?php echo isset($missing_gender) && $missing_gender == "Male" ? 'selected' : "" ?>>Male</option>
+						<option value="Prefer not to say" <?php echo isset($missing_gender) && $missing_gender == "Prefer not to say" ? 'selected' : "" ?>>Prefer not to say</option>
+					</select> </br>
 				</div>
 			</div>
-			<div class="action_made" style="display:none">
-				<div class="form-group">
-					<label for="" class="control-label">Remarks</label>
-					<textarea name="remarks" id="remarks" cols="30" rows="4" class="form-control"><?php echo isset($ca['remarks']) ? $ca['remarks'] : '' ?></textarea>
+
+
+
+			<div class="row">
+				<div class="form-group col-lg-6 ">
+					<label for="date_happened">When the missing person last seen:</label>
+					<input type="date" name="date_happened" class="form-control" id="date_happened" value="<?php echo isset($date_happened) ? $date_happened : '' ?>" required>
+				</div>
+
+				<div class="form-group col-lg-6 ">
+					<label for="missing_address">Where the missing person last seen:</label>
+					<input type="text" class="form-control" name="missing_address" id="missing_address" placeholder="Location" value="<?php echo isset($missing_address) ? $missing_address : '' ?>" required>
 				</div>
 			</div>
-		</form>
-	</div>
+		</div>
+
+		<div class="row">
+			<div class="form-group col-lg-6 ">
+				<label for="physical_description" class="control-label">Physical Description</label>
+				<textarea name="physical_description" id="physical_description" cols="30" rows="2" class="form-control" required><?php echo isset($physical_description) ? $physical_description : '' ?></textarea>
+			</div>
+
+			<div class="form-group col-lg-6 ">
+				<label for="missing_cloth" class="control-label">Last cloth worn:</label>
+				<textarea name="missing_cloth" id="missing_cloth" cols="30" rows="2" class="form-control" required><?php echo isset($missing_cloth) ? $missing_cloth : '' ?></textarea>
+			</div>
+		</div>
+
+
+		<div class="form mb-2 justify-content-center">
+			<center>
+				<h4><b><label for="">Contact Information of the Informer</label></b> </h4>
+			</center>
+		</div>
+
+		<div class="row">
+			<div class="form-group col-lg-6 ">
+				<label for="informer_fname">Informer First name:</label>
+				<input type="text" class="form-control" name="informer_fname" id="informer_fname" placeholder="First name" required pattern="^\D*$" title="Number Not Allowed" value="<?php echo isset($informer_fname) ? $informer_fname : '' ?>">
+			</div>
+
+			<div class="form-group col-lg-6 ">
+				<label for="informer_lname">Informer Last name:</label>
+				<input type="text" class="form-control" name="informer_lname" id="informer_lname" placeholder="Last name" required pattern="^\D*$" title="Number Not Allowed" value="<?php echo isset($informer_lname) ? $informer_lname : '' ?>">
+			</div>
+
+			<div class="form-group col-lg-6 ">
+				<label for="">Informer Contact Number:</label>
+				<input type="text" class="form-control" name="contact_number" id="contact_number" minlength="11" maxlength="11" placeholder="09xxxxxxxxx" pattern="^(09|\+639)\d{9}$" title="Contact Number should be on this format: 09xxxxxxxxx" oninput="this.value = this.value.replace(/[^0-9.]/g, ''); this.value = this.value.replace(/(\..*)\./g, '$1');" value="<?php echo isset($contact_number) ? $contact_number : '' ?>" required>
+			</div>
+		</div>
+
+		<div class="form-group">
+			<label for="" class="control-label">Image</label>
+			<input type="file" class="form-control" name="missing_image" id="img" onchange="displayImg(this,$(this))">
+		</div>
+		<div class="form-group">
+			<img src="<?php echo isset($missing_image) ? 'admin/assets/uploads/' . $missing_image : '' ?>" alt="" id="img">
+		</div>
+
+		<div class="form-group">
+
+		</div>
+		<center>
+			<button class="btn btn-info btn-primary btn-block col-md-2">Save</button>
+			<button class="button btn btn-secondary btn col-md-2" data-dismiss="modal">Cancel</button>
+		</center>
+	</form>
 </div>
+
+<style>
+	#uni_modal .modal-footer {
+		display: none;
+	}
+
+	img#img {
+		max-height: 50vh;
+		max-width: 40vw;
+	}
+</style>
 <script>
+	var inputEle = document.getElementById('time');
+
+
+	function onTimeChange() {
+		var timeSplit = inputEle.value.split(':'),
+			hours,
+			minutes,
+			meridian;
+		hours = timeSplit[0];
+		minutes = timeSplit[1];
+		if (hours > 12) {
+			meridian = 'PM';
+			hours -= 12;
+		} else if (hours < 12) {
+			meridian = 'AM';
+			if (hours == 0) {
+				hours = 12;
+			}
+		} else {
+			meridian = 'PM';
+		}
+		alert(hours + ':' + minutes + ' ' + meridian);
+	}
+</script>
+<script>
+	function displayImg(input, _this) {
+		if (input.files && input.files[0]) {
+			var reader = new FileReader();
+			reader.onload = function(e) {
+				$('#img').attr('src', e.target.result);
+			}
+
+			reader.readAsDataURL(input.files[0]);
+		}
+	}
+
 	$('#manage-missing').on('reset', function() {
 		$('#msg').html('')
 		$('input:hidden').val('')
 	})
-	$('.select2').select2({
-		placeholder: 'Please select here',
-		width: '100%'
-	})
-	$('#status').change(function() {
-		if ($(this).val() == 2) {
-			$('.assign-responder').show()
-			$('.action_made').hide()
-		} else if ($(this).val() == 3) {
-			$('.assign-responder').hide()
-			$('.action_made').show()
-		} else {
-			$('.assign-responder').hide()
-			$('.action_made').hide()
-		}
-	})
-	$(document).ready(function() {
-		if ('<?php echo $status ?>' > 1) {
-			$('#status').trigger('change')
-		}
-	})
 	$('#manage-missing').submit(function(e) {
 		e.preventDefault()
 		start_load()
-		if ($(this).find('.alert-danger').length > 0)
-			$(this).find('.alert-danger').remove();
 		$.ajax({
-			url: 'ajax1.php?action=manage_missing',
+			url: 'admin/ajax1.php?action=missing',
+			data: new FormData($(this)[0]),
+			cache: false,
+			contentType: false,
+			processData: false,
 			method: 'POST',
-			data: $(this).serialize(),
+			type: 'POST',
+
 			error: err => {
 				console.log(err)
-				$('##manage-missing button[type="submit"]').removeAttr('disabled').html('Create');
-
 			},
+
 			success: function(resp) {
 				if (resp == 1) {
-					location.reload();
 					$('#msg').html('<div class="alert alert-success">Data successfully saved! </div>')
 					setTimeout(function() {
-						location.reload()
-					}, 1000)
-				} else if (resp == 2) {
-					$('#msg').html('<div class="alert alert-danger">Report/Complaint is not received yet.</div>')
+						location.href = "success.php";
+					}, 1500)
+				} else {
+					$('#msg').html('<div class="alert alert-danger">Username already exist</div>')
 					end_load()
 				}
 			}
