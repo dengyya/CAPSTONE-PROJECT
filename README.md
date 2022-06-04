@@ -1,15 +1,5 @@
 <div id="top"></div>
 
-
-
-<!-- PROJECT SHIELDS -->
-<!--
-*** I'm using markdown "reference style" links for readability.
-*** Reference links are enclosed in brackets [ ] instead of parentheses ( ).
-*** See the bottom of this document for the declaration of the reference variables
-*** for contributors-url, forks-url, etc. This is an optional, concise syntax you may use.
-*** https://www.markdownguide.org/basic-syntax/#reference-style-links
--->
 <!-- PROJECT SHIELDS -->
 <!--
 *** I'm using markdown "reference style" links for readability.
@@ -148,11 +138,11 @@ _For more examples, please refer to the [Documentation](https://github.com/dengy
 <!-- ROADMAP -->
 ## Roadmap
 
-- [ ] Feature 1
-    Report complaint, crime or accident and missing person 
-- [ ] Feature 2
+- [ ] Feature 1:
+    Report a complaint, crime or accident and missing person 
+- [ ] Feature 2:
     Email Verification for user 
-- [ ] Feature 3
+- [ ] Feature 3:
     - [ ] Report List
     - [ ] Get Updates on your Report
 
@@ -191,7 +181,7 @@ Distributed under the MIT License. See `LICENSE.txt` for more information.
 <!-- CONTACT -->
 ## Contact
 
-Andrea Hermogenes - [@twitter_handle](https://twitter.com/twitter_handle) - ashermoegenes03@gmail.com
+Andrea Hermogenes - [@gmail] - ashermoegenes03@gmail.com
 
 Project Link: [https://github.com/dengyya/CAPSTONE-PROJECT](https://github.com/dengyya/CAPSTONE-PROJECT)
 
@@ -202,9 +192,14 @@ Project Link: [https://github.com/dengyya/CAPSTONE-PROJECT](https://github.com/d
 <!-- ACKNOWLEDGMENTS -->
 ## Acknowledgments
 
-* []()
-* []()
-* []()
+* [Choose an Open Source License](https://choosealicense.com)
+* [GitHub Emoji Cheat Sheet](https://www.webpagefx.com/tools/emoji-cheat-sheet)
+* [Malven's Flexbox Cheatsheet](https://flexbox.malven.co/)
+* [Malven's Grid Cheatsheet](https://grid.malven.co/)
+* [Img Shields](https://shields.io)
+* [GitHub Pages](https://pages.github.com)
+* [Font Awesome](https://fontawesome.com)
+* [React Icons](https://react-icons.github.io/react-icons/search)
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
@@ -212,19 +207,16 @@ Project Link: [https://github.com/dengyya/CAPSTONE-PROJECT](https://github.com/d
 
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
-[contributors-shield]: https://img.shields.io/github/contributors/github_username/repo_name.svg?style=for-the-badge
+[contributors-shield]: https://img.shields.io/github/contributors/othneildrew/Best-README-Template.svg?style=for-the-badge
 [contributors-url]: https://github.com/dengyya/CAPSTONE-PROJECT/graphs/contributors
-[forks-shield]: https://img.shields.io/github/forks/github_username/repo_name.svg?style=for-the-badge
+[forks-shield]: https://img.shields.io/github/forks/othneildrew/Best-README-Template.svg?style=for-the-badge
 [forks-url]: https://github.com/dengyya/CAPSTONE-PROJECT/network/members
-[stars-shield]: https://img.shields.io/github/stars/github_username/repo_name.svg?style=for-the-badge
+[stars-shield]: https://img.shields.io/github/stars/othneildrew/Best-README-Template.svg?style=for-the-badge
 [stars-url]: https://github.com/dengyya/CAPSTONE-PROJECT/stargazers
-[issues-shield]: https://img.shields.io/github/issues/github_username/repo_name.svg?style=for-the-badge
+[issues-shield]: https://img.shields.io/github/issues/othneildrew/Best-README-Template.svg?style=for-the-badge
 [issues-url]: https://github.com/dengyya/CAPSTONE-PROJECT/issues
-[license-shield]: https://img.shields.io/github/license/github_username/repo_name.svg?style=for-the-badge
-[license-url]: https://github.com/dengyya/CAPSTONE-PROJECT/blob/bullseye/LICENSE
+[license-shield]: https://img.shields.io/github/license/othneildrew/Best-README-Template.svg?style=for-the-badge
+[license-url]: https://github.com/dengyya/CAPSTONE-PROJECT/blob/bullseye/LICENSE.txt
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
 [linkedin-url]: https://www.linkedin.com/in/andrea-hermogenes-9a4957235/
 [product-screenshot]: https://github.com/dengyya/CAPSTONE-PROJECT/blob/bullseye/admin/images/dashboard_photo.png
-
-
-
